@@ -47,7 +47,7 @@
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Videogames') }}</a>
+                            <a class="nav-link" href="{{route('videogames.index') }}">{{ __('Videogames') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Fumetti') }}</a>

@@ -15,7 +15,7 @@ class VideogamesTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $videogames = ["assasins's creed", "halo", "Mario Bros", "fifa 25", "tetris"];
+        $videogames = ["assassins's creed", "halo", "Mario Bros", "fifa 25", "tetris"];
         foreach ($videogames as $videogame) {
             $newVideogame = new Videogame();
             $newVideogame->title = $videogame;
