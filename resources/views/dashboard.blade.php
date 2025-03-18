@@ -26,10 +26,10 @@
                 <div class="card-header"> VideoGames</div>
                 <div class="card-body">
                     <p>
-                        intro videogiochi Lorem ipsum dolor sit amet.
+                        intro videogiochi Lorem ipsum dolor sit amet. 
                     </p>
                     <div class="btn btn-primary">
-                        <a class="text-decoration-none text-light" href="">More info</a>
+                        <a class="text-decoration-none text-light" href={{ route('videogames.index') }}>More info</a>
                     </div>
                 </div>
             </div>
