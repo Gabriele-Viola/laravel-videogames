@@ -18,8 +18,13 @@
             <input class="form-control" type="text" name="category" id="category" required value={{$videogame->category}}>
         </div>
         <div class="mb-3">
-            <label for="genre" class="form-control-label">Genre</label>
-            <input class="form-control" type="text" name="genre" id="genre" required value={{$videogame->genre}}>
+            <label for="genre_id" class="form-control-label">Genre</label>
+            <select class="form-select" name="genre_id" id="genre_id">
+                <option value="">-- Select Genre --</option>
+                @foreach ($genres as $genre)
+                <option value="{{$genre->id}}" {{$videogame->genre_id == $genre->id ? 'selected' : ''}}>{{$genre->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="release_date" class="form-control-label">Release Date</label>

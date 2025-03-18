@@ -25,7 +25,8 @@ class VideogameController extends Controller
      */
     public function create()
     {
-        return view('videogames.create');
+        $genres = Genre::all();
+        return view('videogames.create', compact('genres'));
     }
 
     /**
@@ -39,7 +40,7 @@ class VideogameController extends Controller
         $newVideogame = new Videogame();
         $newVideogame->title = $data['title'];
         $newVideogame->category = $data['category'];
-        $newVideogame->genre = $data['genre'];
+        $newVideogame->genre_id = $data['genre_id'];
         $newVideogame->description = $data['description'];
         $newVideogame->release_date = $data['release_date'];
 
@@ -60,7 +61,8 @@ class VideogameController extends Controller
      */
     public function edit(Videogame $videogame)
     {
-        return view('videogames.edit', compact('videogame'));
+        $genres = Genre::all();
+        return view('videogames.edit', compact('videogame', 'genres'));
     }
 
     /**
@@ -71,7 +73,7 @@ class VideogameController extends Controller
         $data = $request->all();
         $videogame->title = $data['title'];
         $videogame->category = $data['category'];
-        $videogame->genre = $data['genre'];
+        $videogame->genre_id = $data['genre_id'];
         $videogame->description = $data['description'];
         $videogame->release_date = $data['release_date'];
 

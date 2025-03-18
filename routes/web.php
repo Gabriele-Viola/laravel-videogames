@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashbordController;
+use App\Http\Controllers\Admin\GenresController;
 use App\Http\Controllers\Admin\VideogameController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -8,9 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,5 +19,21 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('videogames', VideogameController::class)
     ->middleware(['auth', 'verified']);
+
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get("/", [DashbordController::class, 'index'])
+            ->name('index');
+        Route::prefix('settings')
+            ->name('settings.')
+            ->group(function () {
+                Route::get('/', function () {
+                    return view('settings.index');
+                });
+                Route::resource('genres', GenresController::class);
+            });
+    });
 
 require __DIR__ . '/auth.php';

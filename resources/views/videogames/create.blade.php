@@ -13,12 +13,17 @@
                 <textarea class="form-control" name="description" id="description" rows="10" required placeholder="Es. A short description of the game"></textarea>
         </div>
         <div class="mb-3">
-            <label for="category" class="form-control-label">Category</label>
-            <input class="form-control" type="text" name="category" id="category" required placeholder="Es. Arcade">
+            <label for="genre_id" class="form-control-label">Genre</label>
+            <select class="form-select" name="genre_id" id="genre_id">
+                <option value="">-- Select Genre --</option>
+                @foreach ($genres as $genre)
+                <option value="{{$genre->id}}">{{$genre->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
-            <label for="genre" class="form-control-label">Genre</label>
-            <input class="form-control" type="text" name="genre" id="genre" required placeholder="Es. Fantasy">
+            <label for="category" class="form-control-label">Category</label>
+            <input class="form-control" type="text" name="category" id="category" required placeholder="Es. Arcade">
         </div>
         <div class="mb-3">
             <label for="release_date" class="form-control-label">Release Date</label>

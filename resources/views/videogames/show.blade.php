@@ -13,7 +13,7 @@
             </button>
             <div class="position-absolute top-100 end-0 m-3">
 
-                <x-modal :videogame="$videogame"/>
+                <x-modal :data="$videogame"/>
             </div>
         </div>
     </div>
