@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class VideogameController extends Controller
     public function index()
     {
         $videogames = Videogame::all();
-        // dd($videogames);
+        // $genres = Genre::all();
+        // dd($videogames->genres);
         return view('videogames.index', compact('videogames'));
     }
 

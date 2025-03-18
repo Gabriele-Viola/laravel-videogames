@@ -21,7 +21,7 @@ class VideogamesTableSeeder extends Seeder
             $newVideogame->title = $videogame;
             $newVideogame->description = $faker->sentence();
             $newVideogame->category = $faker->word();
-            $newVideogame->genre = $faker->word();
+            $newVideogame->genre_id = rand(1, 8);
             $newVideogame->release_date = $faker->date('Y_m_d');
 
             $newVideogame->save();
