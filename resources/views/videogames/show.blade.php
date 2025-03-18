@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    {{-- @dd($videogame->genre) --}}
+    {{-- @dd($videogame->platforms) --}}
     <h1>{{$videogame->title}}</h1>
     <div class="card shadow overflow-hidden">
     <img src={{asset('storage/' . $videogame->image)}} alt="{{$videogame->title . 'image'}}">

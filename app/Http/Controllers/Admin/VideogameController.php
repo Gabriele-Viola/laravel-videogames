@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Genre;
+use App\Models\Platform;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,9 +17,9 @@ class VideogameController extends Controller
     public function index()
     {
         $videogames = Videogame::all();
-        // $genres = Genre::all();
-        // dd($videogames->genres);
-        return view('videogames.index', compact('videogames'));
+        $platforms = Platform::all();
+        // dd($platforms);
+        return view('videogames.index', compact('videogames', 'platforms'));
     }
 
     /**
@@ -59,7 +60,8 @@ class VideogameController extends Controller
      */
     public function show(Videogame $videogame)
     {
-        return view('videogames.show', compact('videogame'));
+        $platforms = Platform::all();
+        return view('videogames.show', compact('videogame', 'platforms'));
     }
 
     /**
@@ -84,10 +86,9 @@ class VideogameController extends Controller
         $videogame->release_date = $data['release_date'];
 
         if (array_key_exists('image', $data)) {
-            if (!$videogame->image) {
 
-                Storage::delete($videogame->image);
-            }
+            Storage::delete($videogame->image);
+
             $image_url = Storage::putFile('Videogames', $data['image']);
             $videogame->image = $image_url;
         }
