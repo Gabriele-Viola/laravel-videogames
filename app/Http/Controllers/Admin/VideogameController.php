@@ -56,24 +56,34 @@ class VideogameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Videogame $videogame)
     {
-        //
+        return view('videogames.edit', compact('videogame'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Videogame $videogame)
     {
-        //
+        $data = $request->all();
+        $videogame->title = $data['title'];
+        $videogame->category = $data['category'];
+        $videogame->genre = $data['genre'];
+        $videogame->description = $data['description'];
+        $videogame->release_date = $data['release_date'];
+
+        $videogame->update();
+
+        return redirect()->route('videogames.show', $videogame);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Videogame $videogame)
     {
-        //
+        $videogame->delete();
+        return redirect()->route('videogames.index');
     }
 }
