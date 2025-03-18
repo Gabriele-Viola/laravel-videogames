@@ -19,6 +19,7 @@ class VideogamesTableSeeder extends Seeder
         foreach ($videogames as $videogame) {
             $newVideogame = new Videogame();
             $newVideogame->title = $videogame;
+            $newVideogame->image = $faker->mimeType();
             $newVideogame->description = $faker->sentence();
             $newVideogame->category = $faker->word();
             $newVideogame->genre_id = rand(1, 8);

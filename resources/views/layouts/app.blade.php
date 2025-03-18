@@ -49,12 +49,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('videogames.index') }}">{{ __('Videogames') }}</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Fumetti') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Films') }}</a>
-                        </li>
+                        </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -77,6 +77,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('admin.index') }}">{{__('Dashboard')}}</a>
+                                <a class="dropdown-item" href="{{ route('admin.settings.') }}">{{__('Settings Data')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideogameController extends Controller
 {
@@ -44,6 +45,11 @@ class VideogameController extends Controller
         $newVideogame->description = $data['description'];
         $newVideogame->release_date = $data['release_date'];
 
+        if (array_key_exists('image', $data)) {
+            $image_url = Storage::putFile('Videogames', $data['image']);
+            $newVideogame->image = $image_url;
+        };
+
         $newVideogame->save();
         return redirect()->route('videogames.show', $newVideogame);
     }
@@ -76,6 +82,15 @@ class VideogameController extends Controller
         $videogame->genre_id = $data['genre_id'];
         $videogame->description = $data['description'];
         $videogame->release_date = $data['release_date'];
+
+        if (array_key_exists('image', $data)) {
+            if (!$videogame->image) {
+
+                Storage::delete($videogame->image);
+            }
+            $image_url = Storage::putFile('Videogames', $data['image']);
+            $videogame->image = $image_url;
+        }
 
         $videogame->update();
 

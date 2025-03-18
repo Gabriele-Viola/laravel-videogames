@@ -1,6 +1,7 @@
 @props(['videogame'])
 <div class="card h-100 shadow">
     <div class="card-header text-uppercase">{{$videogame->title}}</div>
+    <img src={{asset('storage/' . $videogame->image)}} alt="{{$videogame->title . 'image'}}">
     <div class="card-body d-flex flex-column justify-content-between">
         <div>
             <div><strong>Description: </strong>{{$videogame->description}}</div>

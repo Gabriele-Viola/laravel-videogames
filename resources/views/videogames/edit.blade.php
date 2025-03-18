@@ -2,23 +2,19 @@
 @section('content')
     <div class="container">
         <h1>Aggiungi un nuovo videogioco</h1>
-        <form action={{route('videogames.update', $videogame)}} class="form-control shadow" method="POST">
+        <form action={{route('videogames.update', $videogame)}} class="form-control shadow" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="title"  class="form-control-label">Title</label>
+            <label for="title"  class="form-control-label mb-2">Title</label>
             <input class="form-control" type="text" name="title" id="title" required value={{$videogame->title}}>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-control-label">Description</label>
+            <label for="description" class="form-control-label mb-2">Description</label>
                 <textarea class="form-control" name="description" id="description" rows="10" required >{{$videogame->description}}</textarea>
         </div>
         <div class="mb-3">
-            <label for="category" class="form-control-label">Category</label>
-            <input class="form-control" type="text" name="category" id="category" required value={{$videogame->category}}>
-        </div>
-        <div class="mb-3">
-            <label for="genre_id" class="form-control-label">Genre</label>
+            <label for="genre_id" class="form-control-label mb-2">Genre</label>
             <select class="form-select" name="genre_id" id="genre_id">
                 <option value="">-- Select Genre --</option>
                 @foreach ($genres as $genre)
@@ -27,8 +23,25 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="release_date" class="form-control-label">Release Date</label>
+            <label for="category" class="form-control-label mb-2">Category</label>
+            <input class="form-control" type="text" name="category" id="category" required value={{$videogame->category}}>
+        </div>
+        <div class="mb-3">
+            <label for="release_date" class="form-control-label mb-2">Release Date</label>
             <input class="form-control" type="date" name="release_date" id="release_date" required value={{$videogame->release_date}}>
+        </div>
+        <div class="mb-3 row align-items-center gy-3">
+            <div class="col-12 col-md-6 col-lg-10 d-flex flex-column ">
+
+                <label for="image" class="form-control-label mb-2 ">update videogame image</label>
+                <input type="file" name="image" id="image" class="form-control ">
+            </div>
+            @if ($videogame->image)
+            <div class="col-12 col-md-6 col-lg-2 ">
+                <img class="img-thumbnail " src={{asset('storage/'. $videogame->image)}} alt="">
+            </div>
+                
+            @endif
         </div>
             <button class="btn btn-success mb-3" type="submit"> Update videogame</button>
         </form>

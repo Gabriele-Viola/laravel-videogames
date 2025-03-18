@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h1>Aggiungi un nuovo videogioco</h1>
-        <form action={{route('videogames.store')}} class="form-control shadow" method="POST">
+        <form action={{route('videogames.store')}} class="form-control shadow" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title"  class="form-control-label">Title</label>
@@ -28,6 +28,10 @@
         <div class="mb-3">
             <label for="release_date" class="form-control-label">Release Date</label>
             <input class="form-control" type="date" name="release_date" id="release_date" required >
+        </div>
+        <div class="mb-3">
+            <label for="image">Add videogame pic</label>
+            <input type="file" name="image" id="image">
         </div>
             <button class="btn btn-success mb-3" type="submit"> Add videogame</button>
         </form>
