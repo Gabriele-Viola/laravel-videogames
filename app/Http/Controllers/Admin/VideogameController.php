@@ -28,7 +28,8 @@ class VideogameController extends Controller
     public function create()
     {
         $genres = Genre::all();
-        return view('videogames.create', compact('genres'));
+        $platforms = Platform::all();
+        return view('videogames.create', compact('genres', 'platforms'));
     }
 
     /**
@@ -37,7 +38,6 @@ class VideogameController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // dd($data);
 
         $newVideogame = new Videogame();
         $newVideogame->title = $data['title'];
@@ -52,6 +52,8 @@ class VideogameController extends Controller
         };
 
         $newVideogame->save();
+
+        $newVideogame->platforms()->attach($data['platforms']);
         return redirect()->route('videogames.show', $newVideogame);
     }
 

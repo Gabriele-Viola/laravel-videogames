@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\GenresController;
 use App\Http\Controllers\Admin\PlatformController;
 use App\Http\Controllers\Admin\VideogameController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QrController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +28,8 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get("/", [DashbordController::class, 'index'])
             ->name('index');
+        Route::get('/qrcode', [QrController::class, 'showQRCore'])
+            ->name('QRCode');
         Route::prefix('settings')
             ->name('settings.')
             ->group(function () {
