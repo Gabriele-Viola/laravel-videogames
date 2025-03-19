@@ -3,3 +3,12 @@
 .text-shadow {
     text-shadow: 1px 1px 1px black;
 }
+
+.image-blend {
+    mix-blend-mode: multiply;
+}
+
+.max-height-img {
+    max-height: 234px;
+    object-fit: contain;
+}
