@@ -4,7 +4,14 @@
     {{-- @dd($videogame->platforms) --}}
     <h1>{{$videogame->title}}</h1>
     <div class="card shadow overflow-hidden">
-    <img src={{asset('storage/' . $videogame->image)}} alt="{{$videogame->title . 'image'}}">
+        <div class="position-relative">
+            <img class="img-fluid" src={{asset('storage/' . $videogame->image)}} alt="{{$videogame->title . 'image'}}">
+            <div class="platforms position-absolute top-0 end-0 m-3">
+                @foreach ($videogame->platforms as $platform)
+                    <div class="badge" style="background-color: {{$platform->color}}"><i class="bi bi-{{$platform->name}}"></i> {{$platform->name}} </div>
+                @endforeach
+            </div>
+        </div>
         <div class="card-body position-relative">
             <div><strong>Description: </strong>{{$videogame->description}}</div>
             <div><strong>Genre: </strong>{{$videogame->genre->name}}</div>

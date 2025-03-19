@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\GenresController;
+use App\Http\Controllers\Admin\PlatformController;
 use App\Http\Controllers\Admin\VideogameController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::middleware(['auth', 'verified'])
                     return view('settings.index');
                 });
                 Route::resource('genres', GenresController::class);
+                Route::resource('platforms', PlatformController::class);
             });
     });
 

@@ -5,5 +5,8 @@
     <div class="btn btn-primary">
         <a class="text-decoration-none text-light" href={{route('admin.settings.genres.index')}}>Geners</a>
     </div>
+    <div class="btn btn-primary">
+        <a class="text-decoration-none text-light" href={{route('admin.settings.platforms.index')}}>Platforms</a>
+    </div>
 </div>
 @endsection

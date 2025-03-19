@@ -21,15 +21,15 @@ class PlatformsTableSeeder extends Seeder
                 'color' => '#0652d4'
             ],
             [
-                'name' => 'x-box',
+                'name' => 'xbox',
                 'color' => '#1cbf0a'
             ],
             [
-                'name' => 'nintendo',
+                'name' => 'nintendo-switch',
                 'color' => '#e63b07'
             ],
             [
-                'name' => 'PC',
+                'name' => 'steam',
                 'color' => '#6b6b6b'
             ],
         ];
