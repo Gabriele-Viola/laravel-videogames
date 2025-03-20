@@ -2,14 +2,12 @@
 @section('title', $videogame->title)
 
 @section('content')
+    <h1 class="text-center py-3 shadow" style="background-color: rgb(255, 170, 51)">{{ $videogame->title }}</h1>
     <div class="container">
         {{-- @dd($videogame->platforms) --}}
-        <h1>{{ $videogame->title }}</h1>
 
         <div class="text-end">
-            <button class="btn btn-secondary mx-3">
-                <a class="text-decoration-none text-light" href={{ route('videogames.edit', $videogame) }}>Edit</a>
-            </button>
+
 
         </div>
         <div class="card shadow overflow-hidden w-75 mx-auto">
@@ -30,7 +28,10 @@
             </div>
         </div>
 
-        <div class=" text-center m-3">
+        <div class=" d-flex justify-content-around my-3">
+            <button class="btn btn-secondary mx-3">
+                <a class="text-decoration-none text-light" href={{ route('videogames.edit', $videogame) }}>Edit</a>
+            </button>
 
             <x-modal :data="$videogame" />
         </div>
