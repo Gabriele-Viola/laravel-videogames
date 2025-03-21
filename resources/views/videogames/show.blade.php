@@ -22,7 +22,10 @@
                 </div>
             </div>
             <div class="card-body position-relative">
-                <div><strong>Description: </strong>{{ $videogame->description }}</div>
+                <div>
+                    <strong>Description: </strong>
+                    <p>{{ $videogame->description }}</p>
+                </div>
                 <div><strong>Genre: </strong>{{ $videogame->genre->name }}</div>
                 <div><strong>Release date: </strong>{{ $videogame->release_date }}</div>
             </div>
