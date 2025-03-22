@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Add Videogame')
+{{-- @dd($platforms) --}}
 @section('content')
     <div class="container">
         <h1>Aggiungi un nuovo videogioco</h1>
@@ -10,19 +11,7 @@
                 <input class="form-control" type="text" name="title" id="title" required
                     placeholder="Es. Tomb's Rider">
             </div>
-            <div class="d-flex justify-content-around">
-                @foreach ($platforms as $platform)
-                    <div class="form-check d-flex align-items-center">
-                        <input type="checkbox" id="platform-{{ $platform->id }}" name="platforms[]"
-                            value="{{ $platform->id }}" class="mx-2 form-check-input">
-                        <label for="platform-{{ $platform->id }}"class="badge text-capitalize text-shadow "
-                            style="background-color: {{ $platform->color }}">
-                            <i class="bi bi-{{ $platform->name }}"></i> {{ $platform->name }}
-                        </label>
-                    </div>
-                @endforeach
 
-            </div>
             <div class="mb-3">
                 <label for="description" class="form-control-label mb-2">Description</label>
                 <textarea class="form-control" name="description" id="description" rows="10" required
@@ -40,6 +29,20 @@
             <div class="mb-3">
                 <label for="category" class="form-control-label mb-2">Category</label>
                 <input class="form-control" type="text" name="category" id="category" required placeholder="Es. Arcade">
+            </div>
+            <div class="text-center text-uppercase mb-3 fw-semibold">select platforms</div>
+            <div class="d-flex justify-content-around">
+                @foreach ($platforms as $platform)
+                    <div class="form-check d-flex align-items-center">
+                        <input type="checkbox" id="platform-{{ $platform->id }}" name="platforms[]"
+                            value="{{ $platform->id }}" class="mx-2 form-check-input">
+                        <label for="platform-{{ $platform->id }}"class="badge text-capitalize text-shadow "
+                            style="background-color: {{ $platform->color }}">
+                            <i class="bi bi-{{ $platform->name }}"></i> {{ $platform->name }}
+                        </label>
+                    </div>
+                @endforeach
+
             </div>
             <div class="mb-3">
                 <label for="release_date" class="form-control-label mb-2">Release Date</label>

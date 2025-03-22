@@ -72,7 +72,8 @@ class VideogameController extends Controller
     public function edit(Videogame $videogame)
     {
         $genres = Genre::all();
-        return view('videogames.edit', compact('videogame', 'genres'));
+        $platforms = Platform::all();
+        return view('videogames.edit', compact('videogame', 'genres', 'platforms'));
     }
 
     /**
@@ -87,6 +88,7 @@ class VideogameController extends Controller
         $videogame->description = $data['description'];
         $videogame->release_date = $data['release_date'];
 
+
         if (array_key_exists('image', $data)) {
 
             Storage::delete($videogame->image);
@@ -97,6 +99,12 @@ class VideogameController extends Controller
 
         $videogame->update();
 
+        if ($request->has('platforms')) {
+            $videogame->platforms()->sync($data['platforms']);
+        } else {
+            $videogame->platforms()->detach();
+        }
+
         return redirect()->route('videogames.show', $videogame);
     }
 
@@ -105,6 +113,7 @@ class VideogameController extends Controller
      */
     public function destroy(Videogame $videogame)
     {
+        $videogame->platforms()->detach();
         $videogame->delete();
         return redirect()->route('videogames.index');
     }
