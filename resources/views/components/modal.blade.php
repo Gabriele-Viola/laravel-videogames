@@ -11,7 +11,7 @@
 @endphp
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal{{ $data->id }}">
+<button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#myModal{{ $data->id }}">
     @if ($data->genre_id)
         DELETE
     @else

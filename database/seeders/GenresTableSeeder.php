@@ -30,7 +30,6 @@ class GenresTableSeeder extends Seeder
             $newGenre = new Genre();
             $newGenre->name = $genre;
             $newGenre->description = $faker->sentence();
-            $newGenre->logo = $faker->mimeType();
 
             $newGenre->save();
         }

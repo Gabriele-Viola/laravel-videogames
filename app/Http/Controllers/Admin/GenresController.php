@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GenresController extends Controller
 {
@@ -38,7 +39,6 @@ class GenresController extends Controller
         $newGenre = new Genre();
         $newGenre->name = $data['name'];
         $newGenre->description = $data['description'];
-        $newGenre->logo = $data['logo'];
 
         $newGenre->save();
 
@@ -48,9 +48,9 @@ class GenresController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Genre $genre)
     {
-        //
+        return view('settings.genres.show', compact('genre'));
     }
 
     /**
@@ -72,7 +72,6 @@ class GenresController extends Controller
         // dd($genre);
         $genre->name = $data['name'];
         $genre->description = $data['description'];
-        $genre->logo = $data['logo'];
         $genre->update();
 
         return redirect()->route('admin.settings.genres.index');
