@@ -17,6 +17,22 @@ main {
     min-height: calc(100vh - 168px);
 }
 
+.bg-hover-nintendo-switch:hover {
+    box-shadow: 1px 1px 10px var(--color-nintendo-switch);
+}
+
+.bg-hover-playstation:hover {
+    box-shadow: 1px 1px 10px var(--color-playstation);
+}
+
+.bg-hover-xbox:hover {
+    box-shadow: 1px 1px 10px var(--color-xbox);
+}
+
+.bg-hover-steam:hover {
+    box-shadow: 1px 1px 10px var(--color-steam);
+}
+
 footer {
     box-shadow: 0px -7px 19px #e3e3e3;
     padding: .5rem 0;

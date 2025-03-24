@@ -21,9 +21,14 @@
             <tbody>
                 @foreach ($platforms as $platform)
                     <tr>
-                        <td>
+                        <td class="">
                             <a href={{ route('admin.settings.platforms.show', $platform) }}>
-                                <span class="badge text-capitalize text-shadow"
+                                <style>
+                                    :root {
+                                        --color-{{ $platform->name }}: {{ $platform->color }};
+                                    }
+                                </style>
+                                <span class="badge text-capitalize text-shadow bg-hover-{{ $platform->name }}"
                                     style="background-color: {{ $platform->color }}">
                                     <i class="bi bi-{{ $platform->name }}"></i> {{ $platform->name }}
                                 </span>
