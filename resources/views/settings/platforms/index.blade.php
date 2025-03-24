@@ -34,7 +34,13 @@
                                 </span>
                             </a>
                         </td>
-                        <td class="d-none d-md-table-cell">{{ $platform->description }}</td>
+                        <td class="d-none d-md-table-cell">
+                            <a class="bg-hover-{{ $platform->name }} px-2 py-1 rounded text-decoration-none text-dark"
+                                href={{ route('admin.settings.platforms.show', $platform) }}>
+
+                                {{ substr($platform->description, 0, 120) . '...' }}
+                            </a>
+                        </td>
                         <td class="d-flex justify-content-evenly">
                             <a class="text-decoration-none text-light btn btn-secondary mx-2"
                                 href={{ route('admin.settings.platforms.edit', $platform->id) }}>

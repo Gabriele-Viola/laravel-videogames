@@ -7,7 +7,7 @@
             <i class="bi bi-arrow-return-left"></i>
             Platforms </a>
         <div class="card my-3 w-75  m-auto">
-            <div class="card-header fs-3">
+            <div class="card-header fs-3 text-capitalize">
                 {{ $platform->name }}
             </div>
             <div class="card-body lh-lg fs-5">

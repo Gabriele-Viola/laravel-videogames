@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('color', 7);
             $table->timestamps();
         });
