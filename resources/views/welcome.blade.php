@@ -5,22 +5,27 @@
         <div class="container py-5">
             <div class="row align-items-center justify-content-center">
                 <div class="col-4">
-
                     <img src="{{ asset('image/joypad.jpeg') }}" alt="joypad logo" class="image-blend rounded img-fluid shadow">
                 </div>
                 <div class="col-8">
                     <h1 class="display-5 fw-bold">
-                        Welcome to Laravel+Bootstrap <i class="bi bi-box"></i>
+                        Welcome to your personal favorite videogames management system <i class="bi bi-box"></i>
                     </h1>
                     <p class="col-md-8 fs-4">
-                        This is a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade.
-                        It
-                        works from laravel 9.x to the latest release 11.x.
-                        You can also use bootstrap icons out of the box.
+                        Here you can add on your personal space, your favorite videgames, whit its description, genre and
+                        the platforms where it is available.
                     </p>
-                    <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary btn-lg"
-                        type="button">Documentation</a>
-
+                    @guest
+                        <p>
+                            <a class="fw-bold" href="{{ route('register') }}">Sign up</a>
+                            to start your Videogames's Catalogues
+                        </p>
+                    @else
+                        <p>
+                            <a class="fw-bold" href="{{ route('videogames.index') }}">See your List</a>
+                            to start your Videogames's Catalogues
+                        </p>
+                    @endguest
                 </div>
 
             </div>

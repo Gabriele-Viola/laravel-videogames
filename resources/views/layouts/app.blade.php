@@ -26,7 +26,8 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center"
+                    href="{{ Auth::check() ? route('admin.index') : url('/') }}">
                     <div class="logo_laravel">
                         <img src="{{ asset('image/joypad.jpeg') }}" style="width: 50px" alt="joypad logo"
                             class="image-blend rounded">
@@ -44,11 +45,14 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link"
+                                href="{{ Auth::check() ? route('admin.index') : url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('videogames.index') }}">{{ __('Videogames') }}</a>
-                        </li>
+                        @Auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('videogames.index') }}">{{ __('Videogames') }}</a>
+                            </li>
+                        @endauth
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Fumetti') }}</a>
                         </li>
