@@ -12,3 +12,50 @@
     max-height: 234px;
     object-fit: contain;
 }
+
+main {
+    min-height: calc(100vh - 168px);
+}
+
+footer {
+    box-shadow: 0px -7px 19px #e3e3e3;
+    padding: .5rem 0;
+
+    ul {
+        list-style: none;
+
+
+
+        li {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-top: .75rem;
+
+            a {
+                text-decoration: none;
+                text-align: center;
+                color: white;
+                background-color: purple;
+                border-radius: 5px;
+                padding: 2px 5px;
+            }
+
+            a:hover {
+                background-color: fuchsia;
+                box-shadow: 1px 1px 10px fuchsia;
+            }
+        }
+    }
+
+    .name-link {
+        padding: .25rem .5rem;
+        border-radius: 5px;
+        background-color: purple;
+    }
+
+    .name-link:hover {
+        background-color: fuchsia;
+        box-shadow: 1px 1px 10px fuchsia;
+
+    }
+}

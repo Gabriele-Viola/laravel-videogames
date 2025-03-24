@@ -109,6 +109,7 @@
         <main class="">
             @yield('content')
         </main>
+        @include('partial.AppFooter')
     </div>
 </body>
 

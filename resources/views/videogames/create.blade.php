@@ -3,7 +3,11 @@
 {{-- @dd($platforms) --}}
 @section('content')
     <div class="container">
-        <h1>Aggiungi un nuovo videogioco</h1>
+        <h1 class="my-3">Add a new Videogame</h1>
+        <a class="btn btn-secondary my-4" href={{ route('videogames.index') }}>
+            <i class="bi bi-arrow-return-left"></i>
+            Videogames
+        </a>
         <form action={{ route('videogames.store') }} class="form-control shadow" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -31,9 +35,9 @@
                 <input class="form-control" type="text" name="category" id="category" required placeholder="Es. Arcade">
             </div>
             <div class="text-center text-uppercase mb-3 fw-semibold">select platforms</div>
-            <div class="d-flex justify-content-around">
+            <div class="row row-cols-2 row-cols-md-4 gy-2 justify-content-center my-4">
                 @foreach ($platforms as $platform)
-                    <div class="form-check d-flex align-items-center">
+                    <div class="form-check col d-flex align-items-center justify-content-center">
                         <input type="checkbox" id="platform-{{ $platform->id }}" name="platforms[]"
                             value="{{ $platform->id }}" class="mx-2 form-check-input">
                         <label for="platform-{{ $platform->id }}"class="badge text-capitalize text-shadow "

@@ -24,11 +24,14 @@ class GenresTableSeeder extends Seeder
             'Sport e Corse',
             'Puzzle e Party Game',
             'Arcade e Retrò',
-
+            'No Genre'
         ];
         foreach ($genres as $genre) {
             $newGenre = new Genre();
             $newGenre->name = $genre;
+            if ($genre == 'No Genre') {
+                $newGenre->description = 'No Genre';
+            }
             $newGenre->description = $faker->sentence();
 
             $newGenre->save();

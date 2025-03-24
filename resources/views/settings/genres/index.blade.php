@@ -8,7 +8,8 @@
                 <i class="bi bi-arrow-return-left"></i>
                 Settings</a>
             <a class="btn btn-primary" href={{ route('admin.settings.genres.create') }}>
-                Add new Genre</a>
+                <i class="bi bi-file-earmark-plus-fill"></i>
+                New Genre</a>
         </div>
         <table class="table">
             <thead>
@@ -21,29 +22,20 @@
             </thead>
             <tbody>
                 @foreach ($genres as $genre)
-                    <tr>
+                    <tr class="{{ $genre->name == 'No Genre' ? 'd-none' : '' }}">
                         <td>
-                            <div class="btn btn-primary w-75">
-
-                                <a class="text-decoration-none text-light"
-                                    href={{ route('admin.settings.genres.show', $genre) }}>
-                                    {{ $genre->name }}
-                                </a>
-                            </div>
-
-
-                        </td>
-                        <td class="d-none d-md-table-cell">{{ $genre->description }}</td>
-                        <td class="d-flex justify-content-evenly">
-                            <div class="btn btn-secondary mx-2">
-                                <a class="text-decoration-none text-light"
-                                    href={{ route('admin.settings.genres.edit', $genre->id) }}>
-                                    <i class="bi bi-pencil-fill"></i>
-                            </div>
+                            <a class="text-decoration-none text-light btn btn-info w-100"
+                                href={{ route('admin.settings.genres.show', $genre) }}>
+                                {{ $genre->name }}
                             </a>
-
+                        </td>
+                        <td class="d-none d-md-table-cell">{{ substr($genre->description, 0, 130) . '...' }}</td>
+                        <td class="d-flex justify-content-evenly">
+                            <a class="text-decoration-none text-light btn btn-secondary mx-2"
+                                href={{ route('admin.settings.genres.edit', $genre->id) }}>
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
                             <x-modal :data="$genre" />
-
                         </td>
                     </tr>
                 @endforeach

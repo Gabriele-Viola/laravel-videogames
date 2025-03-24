@@ -1,9 +1,13 @@
 @extends('layouts.app')
-@section('title', 'update Videogame')
+@section('title', 'update' . ' ' . $videogame->title)
 
 @section('content')
     <div class="container">
-        <h1>Aggiungi un nuovo videogioco</h1>
+        <h1 class="my-3">Update {{ $videogame->title }}</h1>
+        <a class="btn btn-secondary my-4" href={{ route('videogames.show', $videogame) }}>
+            <i class="bi bi-arrow-return-left"></i>
+            {{ $videogame->title }}
+        </a>
         <form action={{ route('videogames.update', $videogame) }} class="form-control shadow" method="POST"
             enctype="multipart/form-data">
             @csrf
@@ -27,9 +31,9 @@
                     @endforeach
                 </select>
             </div>
-            <div class="d-flex justify-content-around">
+            <div class="row row-cols-2 row-cols-md-4 gy-2 justify-content-center my-4">
                 @foreach ($platforms as $platform)
-                    <div class="form-check d-flex align-items-center">
+                    <div class="form-check col d-flex align-items-center justify-content-center">
                         <input type="checkbox" id="platform-{{ $platform->id }}" name="platforms[]"
                             value="{{ $platform->id }}"
                             {{ $videogame->platforms->contains($platform->id) ? 'checked' : '' }}

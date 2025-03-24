@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Add Genre')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-2">
+        <a class="btn btn-secondary my-4" href={{ route('admin.settings.genres.index') }}>
+            <i class="bi bi-arrow-return-left"></i>
+            Genres </a>
         <form class="form-control" action={{ route('admin.settings.genres.store') }} method="POST">
             @csrf
             <div class="mb-3">

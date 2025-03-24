@@ -48,9 +48,9 @@ class PlatformController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Platform $platform)
     {
-        //
+        return view('settings.platforms.show', compact('platform'));
     }
 
     /**

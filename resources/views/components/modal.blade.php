@@ -26,7 +26,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="myModalLabel">Are You sure to delete this
-                    {{ $modalData = $data->color ? 'platforms' : ($data->title ? 'videogame' : 'genre') }}?</h1>
+                    {{ $modalData == 'platforms' ? 'platforms' : ($modalData == 'videogames' ? 'videogame' : 'genre') }}?
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -38,7 +39,7 @@
 
                 {{-- @dd($modalData); --}}
                 <form
-                    action={{ route($data->genre_id ? 'videogames.destroy' : 'admin.settings.' . $modalData . 's.destroy', $data) }}
+                    action={{ route($data->genre_id ? 'videogames.destroy' : 'admin.settings.' . $modalData . '.destroy', $data) }}
                     method="POST">
                     @csrf
                     @method('DELETE')
