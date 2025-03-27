@@ -2,7 +2,7 @@
 @section('title', 'Your Videogames')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="my-4">I tuoi videogiochi</h1>
         <div class="d-flex justify-content-between">
             <div class="btn btn-success mb-3">
